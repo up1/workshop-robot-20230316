@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-
+${URL}    https://www.google.com
 
 *** Test Cases ***
 Success with search robot from google
@@ -21,7 +21,7 @@ Search with robot
     Press Keys    name:q    RETURN
 
 Open search page from google.com
-    Open Browser    https://www.google.com    browser=edge
+    Open Browser    ${URL}    browser=edge
     Maximize Browser Window
     # ตรวจสอบหน้าจอ
     Wait Until Element Is Enabled    name:q
