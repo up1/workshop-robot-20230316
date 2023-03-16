@@ -19,10 +19,11 @@ Choose and upload files
      Choose File   xpath=//div[1]/input[2]   ${CURDIR}/data/1.txt
      Choose File   xpath=//div[1]/input[2]   ${CURDIR}/data/2.txt
      Choose File   xpath=//div[1]/input[2]   ${CURDIR}/data/3.txt
-     # TODOs
+     # Check queue length of upload files
      Element Should Contain    xpath=//div/div[2]/div[2]/p    Queue length: 3
-
-    # File name
+     Page Should Contain Element    xpath=//table/tbody/tr    limit=3
+     
+    # Check File name
      Element Should Contain    
      ...    xpath=//table/tbody/tr[1]/td[1]    
      ...    1.txt
@@ -33,6 +34,14 @@ Choose and upload files
      ...    xpath=//table/tbody/tr[3]/td[1]    
      ...    3.txt
 
-     Page Should Contain Element    xpath=//table/tbody/tr    limit=3
+    # Check upload button => enable and disable
+    Element Should Be Enabled   //table/tbody/tr[1]/td[5]/button[1]
+    Element Should Be Disabled   //table/tbody/tr[1]/td[5]/button[2]
+
+    Element Should Be Enabled   //table/tbody/tr[2]/td[5]/button[1]
+    Element Should Be Disabled   //table/tbody/tr[2]/td[5]/button[2]
+
+    Element Should Be Enabled   //table/tbody/tr[3]/td[5]/button[1]
+    Element Should Be Disabled   //table/tbody/tr[3]/td[5]/button[2]
 
 Confirm upload
