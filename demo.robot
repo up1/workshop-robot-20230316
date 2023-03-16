@@ -8,16 +8,20 @@ ${URL}    https://www.google.com
 Success with search robot from google
     [Tags]   done  feature01  phase01
     Open search page from google.com
-    Search with robot
+    Search with "robot"
     Found search result with robot
 
 Success with search abc from google
     [Tags]   testing  feature02  phase02
     Open search page from google.com
-    Search with abc
+    Search with "abc"
     Found search result with abc
 
 *** Keywords ***
+Search with "${keyword}"
+    Input Text    name:q   ${keyword}
+    Press Keys    name:q    RETURN
+
 Found search result with robot
     Wait Until Element Is Enabled    id:result-stats
     Element Should Contain    id:result-stats   ผลการค้นหาประมาณ
@@ -27,14 +31,6 @@ Found search result with abc
     Wait Until Element Is Enabled    id:result-stats
     Element Should Contain    id:result-stats   ผลการค้นหาประมาณ
     Element Should Contain    id:result-stats   รายการ
-
-Search with abc
-    Input Text    name:q   abc
-    Press Keys    name:q    RETURN
-
-Search with robot
-    Input Text    name:q   robot
-    Press Keys    name:q    RETURN
 
 Open search page from google.com
     Open Browser    ${URL}    browser=edge
