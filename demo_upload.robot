@@ -47,3 +47,11 @@ Choose and upload files
     Element Should Be Disabled   xpath=//table/tbody/tr[3]/td[5]/button[2]
 
 Confirm upload
+    Click Element    xpath=//table/tbody/tr[1]/td[5]/button[1]
+    Wait Until Element Is Visible    xpath=//div[@style="width: 33%;"]
+
+    Click Element    xpath=//table/tbody/tr[2]/td[5]/button[1]
+    Wait Until Element Is Visible    xpath=//div[@style="width: 67%;"]
+
+    Click Element    xpath=//table/tbody/tr[3]/td[5]/button[1]
+    Wait Until Element Is Visible    xpath=//div[@style="width: 100%;"]
