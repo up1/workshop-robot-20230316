@@ -11,6 +11,15 @@ Success with search robot from google
     Found search result with robot
 
 *** Keywords ***
+Found search result with robot
+    Wait Until Element Is Enabled    id:result-stats
+    Element Should Contain    id:result-stats   ผลการค้นหาประมาณ
+    Element Should Contain    id:result-stats   รายการ
+
+Search with robot
+    Input Text    name:q   robot
+    Press Keys    name:q    RETURN
+
 Open search page from google.com
     Open Browser    https://www.google.com    browser=edge
     Maximize Browser Window
