@@ -1,6 +1,10 @@
 # Workshop :: Robotframework
 ```
 $robot demo.robot
+```
+
+Run with variable
+````
 $robot -v URL:http://www.facebook.com demo.robot
 ```
 
