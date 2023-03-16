@@ -16,8 +16,20 @@ Success with search abc from google
     Open search page from google.com
     Search by keyword     abc
     Found search result with abc
+    # ลูกค้าทำการ login เข้าระบบด้วย "somkiat@xxx.com" และ "123456"
+    # ลูกค้าทำการ login เข้าระบบ    somkiat@xxx.com     123456
 
 *** Keywords ***
+ลูกค้าทำการ login เข้าระบบ
+    [Arguments]  ${email}   ${password}
+    Input Text    locator    ${email}
+    Input Password    locator    ${password}
+
+ลูกค้าทำการ login เข้าระบบด้วย "${email}" และ "${password}"
+    Input Text    locator    ${email}
+    Input Password    locator    ${password}
+
+
 Search with "${keyword}"
     Input Text    name:q   ${keyword}
     Press Keys    name:q    RETURN
