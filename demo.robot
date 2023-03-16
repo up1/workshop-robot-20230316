@@ -14,11 +14,16 @@ Success with search robot from google
 Success with search abc from google
     [Tags]   testing  feature02  phase02
     Open search page from google.com
-    Search with "abc"
+    Search by keyword     abc
     Found search result with abc
 
 *** Keywords ***
 Search with "${keyword}"
+    Input Text    name:q   ${keyword}
+    Press Keys    name:q    RETURN
+
+Search by keyword
+    [Arguments]   ${keyword}
     Input Text    name:q   ${keyword}
     Press Keys    name:q    RETURN
 
