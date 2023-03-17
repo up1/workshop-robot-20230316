@@ -9,8 +9,14 @@ ${URL}   https://efiling.rd.go.th/rd-cms/
 Login page with failure case :: wrong user and password
     ไปยังหน้าหลักของการยื่นภาษี
     ทำการยื่นแบบ online
+    ทำการแสดง error message ว่า login ไม่ถูกต้อง
 
 *** Keywords ***
+ทำการแสดง error message ว่า login ไม่ถูกต้อง
+    Wait Until Element Is Visible  xpath=//ng-snotify/div[6]/ng-snotify-toast/div/div/div[2]
+    Element Should Contain    xpath=//ng-snotify/div[6]/ng-snotify-toast/div/div/div[2]    
+    ...    ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง
+
 ทำการยื่นแบบ online
     Wait Until Element Is Enabled    xpath=//*[@id="top"]/div/div[2]/button[1]
     Click Element    xpath=//*[@id="top"]/div/div[2]/button[1]
