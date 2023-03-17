@@ -1,9 +1,6 @@
 *** Settings ***
-Library    SeleniumLibrary
-
-*** Variables ***
-${URL}   https://efiling.rd.go.th/rd-cms/
-
+Resource    pages/main.robot
+Resource    pages/login.robot
 
 *** Test Cases ***
 Login page with failure case :: wrong user and password
@@ -13,25 +10,15 @@ Login page with failure case :: wrong user and password
 
 *** Keywords ***
 ทำการแสดง error message ว่า login ไม่ถูกต้อง
-    Wait Until Element Is Visible  xpath=//ng-snotify/div[6]/ng-snotify-toast/div/div/div[2]
-    Element Should Contain    xpath=//ng-snotify/div[6]/ng-snotify-toast/div/div/div[2]    
-    ...    ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง
+    login.Verified error message with wrong username and password
 
 ทำการยื่นแบบ online
     [Arguments]  ${username}   ${password}
-    Wait Until Element Is Enabled    xpath=//*[@id="top"]/div/div[2]/button[1]
-    Click Element    xpath=//*[@id="top"]/div/div[2]/button[1]
-    Switch Window	NEW
-    Wait Until Element Is Enabled    id=username
-    Input Text    id=username    ${username}
-    Input Text    id=passwordField    ${password}
-    Click Element    xpath=//form/button
+    login.Fill in user and password   ${username}   ${password}
+    login.เข้าสู่ระบบ
 
 ไปยังหน้าหลักของการยื่นภาษี
-    Open Browser    ${URL}    browser=edge
-    Maximize Browser Window
+    main.Open home page
+    main.Verified news
     
-    Wait Until Element Is Visible    id=exampleModalLabel
-    Wait Until Element Contains    id=exampleModalLabel    แจ้งข่าวสาร
-    Click Element    xpath=//*[@id="announceModal"]/div/div/div[1]/button
 
