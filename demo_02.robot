@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Suite Setup   Open search page from google.com
+Suite Teardown   Close Browser
 Test Teardown    ไปยังหน้าแรก
 
 *** Variables ***
