@@ -1,5 +1,6 @@
 *** Settings ***
 Library   SeleniumLibrary
+Suite Teardown  Close Browser
 
 *** Test Cases ***
 Success with signup process
